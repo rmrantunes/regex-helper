@@ -1,13 +1,15 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { RegexContext } from "contexts/RegexContext";
 
 export const RegexInput = () => {
-  const [text, setText] = useState("");
+  const { setRegexInput } = useContext(RegexContext);
+  const [input, setInput] = useState("");
   return (
     <input
       type="text"
-      value={text}
-      onChange={(event) => setText(event.target.value)}
+      value={input}
+      onBlur={() => setRegexInput(input)}
+      onChange={(event) => setInput(event.target.value)}
     />
   );
 };
