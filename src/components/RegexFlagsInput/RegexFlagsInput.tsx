@@ -4,7 +4,7 @@ import { RegexFlags } from "utils/create-regex";
 
 import styles from "./RegexFlagsInput.module.css";
 
-const options: RegexFlags[] = ["g", "i", "m"];
+const flags: RegexFlags[] = ["g", "i", "m"];
 
 export const RegexFlagsInput = () => {
   const { setRegexFlags, regexFlags } = useContext(RegexContext);
@@ -21,7 +21,7 @@ export const RegexFlagsInput = () => {
 
   return (
     <div className={styles.flags}>
-      {options.map((flag) => (
+      {flags.map((flag) => (
         <label key={flag}>
           <input
             type="checkbox"
