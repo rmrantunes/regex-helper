@@ -14,3 +14,26 @@ a {
 * {
   box-sizing: border-box;
 }
+
+body {
+  background: #111;
+  color: white;
+}
+
+input,
+textarea {
+  border: 1px solid #aaa;
+  background: #101010;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+input:hover,
+textarea:hover {
+  border: 1px solid #eee;
+}
