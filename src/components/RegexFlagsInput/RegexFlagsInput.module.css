@@ -1,0 +1,10 @@
+.flags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.flags label {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+}

@@ -2,6 +2,8 @@ import { RegexContext } from "contexts/RegexContext";
 import React, { useContext } from "react";
 import { RegexFlags } from "utils/create-regex";
 
+import styles from "./RegexFlagsInput.module.css";
+
 const options: RegexFlags[] = ["g", "i", "m"];
 
 export const RegexFlagsInput = () => {
@@ -18,7 +20,7 @@ export const RegexFlagsInput = () => {
   }
 
   return (
-    <div>
+    <div className={styles.flags}>
       {options.map((flag) => (
         <label key={flag}>
           <input
