@@ -21,8 +21,8 @@ type RegexContextValue = {
 export const RegexContext = createContext({} as RegexContextValue);
 
 export const RegexProvider: React.FC = (props) => {
-  const [text, setText] = useState("");
-  const [regexInput, setRegexInput] = useState("");
+  const [text, setText] = useState("My number is 91234-5678");
+  const [regexInput, setRegexInput] = useState("[0-9]{4,5}-?[0-9]{4}");
   const [regexFlags, setRegexFlags] = useState<RegexFlags[]>(["g"]);
   const [regexError, setRegexError] = useState("");
   const [highlightText, setHighlightText] = useState("");
