@@ -13,6 +13,7 @@ export const RegexInput = () => {
       value={input}
       onBlur={() => setRegexInput(input)}
       onChange={(event) => setInput(event.target.value)}
+      placeholder="Write here your regular expression"
     />
   );
 };
