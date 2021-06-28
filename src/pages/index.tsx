@@ -1,4 +1,5 @@
 import { RegexInput } from "components/RegexInput";
+import { RegexFlagsInput } from "components/RegexFlagsInput";
 import { TextInput } from "components/TextInput";
 import { RegexContext } from "contexts/RegexContext";
 import { useContext } from "react";
@@ -6,13 +7,30 @@ import { useContext } from "react";
 import styles from "styles/Home.module.css";
 
 export default function Home() {
-  const { highlightText } = useContext(RegexContext);
+  const { highlightText, regexInput, regexFlags } = useContext(RegexContext);
 
   return (
     <main className={styles.main}>
-      <RegexInput />
+      <div className={styles.regex}>
+        <RegexInput />
+        <RegexFlagsInput />
+      </div>
       <TextInput />
-      <div dangerouslySetInnerHTML={{ __html: highlightText }} />
+      <div className={styles.regexInfo}>
+        <div>
+          <h3>Used Expression:</h3>
+          <p>
+            /{regexInput}/{regexFlags.join("")}
+          </p>
+        </div>
+        <div>
+          <h3>Result: </h3>
+          <p
+            dangerouslySetInnerHTML={{ __html: highlightText }}
+            className={styles.highlight}
+          />
+        </div>
+      </div>
     </main>
     // Regex options modal // TextInput
   );
