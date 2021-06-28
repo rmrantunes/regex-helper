@@ -6,7 +6,7 @@ type HighlightMatchOptions = {
 };
 
 export function highlightMatch(options: HighlightMatchOptions) {
-  const [open, close] = options.tag || ["<b>", "</b>"];
+  const [open, close] = options.tag || ["<span>", "</span>"];
   return options.input.replace(
     options.regex,
     (match) => `${open}${match}${close}`
