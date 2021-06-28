@@ -1,10 +1,15 @@
-.main {
+.container {
   max-width: 56rem;
   margin: 0 auto;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
+.main {
+  flex: 1;
   display: grid;
-  grid-template-rows: 4rem auto;
+  grid-template-rows: 4rem 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
@@ -35,4 +40,14 @@
   flex-direction: column;
   gap: 0.25rem;
   margin-bottom: 1rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.footer a {
+  background: #eee;
+  color: black;
 }
