@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { createRegex } from "utils/create-regex";
+import { createRegex, RegexFlags } from "utils/create-regex";
 import { highlightMatch } from "utils/highlight-match";
 
 type RegexContextValue = {
@@ -13,6 +13,8 @@ type RegexContextValue = {
   setText: Dispatch<SetStateAction<string>>;
   regexInput: string;
   setRegexInput: Dispatch<SetStateAction<string>>;
+  regexFlags: RegexFlags[];
+  setRegexFlags: Dispatch<SetStateAction<RegexFlags[]>>;
   highlightText: string;
 };
 
@@ -21,6 +23,7 @@ export const RegexContext = createContext({} as RegexContextValue);
 export const RegexProvider: React.FC = (props) => {
   const [text, setText] = useState("");
   const [regexInput, setRegexInput] = useState("");
+  const [regexFlags, setRegexFlags] = useState<RegexFlags[]>(["g"]);
   const [regexError, setRegexError] = useState("");
   const [highlightText, setHighlightText] = useState("");
 
@@ -28,13 +31,13 @@ export const RegexProvider: React.FC = (props) => {
     try {
       const highlightText = highlightMatch({
         input: text,
-        regex: createRegex(regexInput),
+        regex: createRegex(regexInput, regexFlags),
       });
       setHighlightText(highlightText);
     } catch (error) {
       setRegexError(error);
     }
-  }, [text, regexInput]);
+  }, [text, regexInput, regexFlags]);
 
   return (
     <RegexContext.Provider
@@ -44,6 +47,8 @@ export const RegexProvider: React.FC = (props) => {
         regexInput,
         setRegexInput,
         highlightText,
+        regexFlags,
+        setRegexFlags,
       }}
     >
       {props.children}
