@@ -7,6 +7,7 @@
   grid-template-rows: 4rem auto;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .regex {
@@ -27,4 +28,11 @@
   background: #eee;
   color: black;
   margin: 0 0.5px;
+}
+
+.regexInfo div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
 }
