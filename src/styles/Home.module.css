@@ -8,3 +8,23 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
+.regex {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.highlight {
+  font-size: 1.25rem;
+  font-family: monospace;
+}
+
+.highlight span {
+  font-size: 1.25rem;
+  font-family: monospace;
+  background: #eee;
+  color: black;
+  margin: 0 0.5px;
+}
